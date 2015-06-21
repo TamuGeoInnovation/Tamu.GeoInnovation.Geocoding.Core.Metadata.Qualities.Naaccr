@@ -1,0 +1,5 @@
+C:\DevSource\Tamu\GeoInnovation\Geocoding.Core.Metadata.Qualities.Naaccr\build\1.0.0\AnyCPU\release\Tamu.GeoInnovation.Geocoding.Core.Metadata.Qualities.Naaccr.dll
+C:\DevSource\Tamu\GeoInnovation\Geocoding.Core.Metadata.Qualities.Naaccr\build\1.0.0\AnyCPU\release\Tamu.GeoInnovation.Geocoding.Core.Metadata.Qualities.Naaccr.pdb
+C:\DevSource\Tamu\GeoInnovation\Geocoding.Core.Metadata.Qualities.Naaccr\src\Main\obj\Release\Geocoding.Core.Metadata.Qualities.Naaccr.Dev.csprojResolveAssemblyReference.cache
+C:\DevSource\Tamu\GeoInnovation\Geocoding.Core.Metadata.Qualities.Naaccr\src\Main\obj\Release\Tamu.GeoInnovation.Geocoding.Core.Metadata.Qualities.Naaccr.dll
+C:\DevSource\Tamu\GeoInnovation\Geocoding.Core.Metadata.Qualities.Naaccr\src\Main\obj\Release\Tamu.GeoInnovation.Geocoding.Core.Metadata.Qualities.Naaccr.pdb
