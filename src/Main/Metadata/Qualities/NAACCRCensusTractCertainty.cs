@@ -125,6 +125,9 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
                         case GeocodeQualityType.ActualLotInterpolation:
                             ret = NAACCRCensusTractCertaintyType.ResidenceStreetAddress;
                             break;
+                        case GeocodeQualityType.AddressPoint:
+                            ret = NAACCRCensusTractCertaintyType.ResidenceStreetAddress;
+                            break;
                         case GeocodeQualityType.AddressRangeInterpolation:
                             ret = NAACCRCensusTractCertaintyType.ResidenceStreetAddress;
                             break;
@@ -189,6 +192,9 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
                             ret = NAACCRCensusTractCertaintyType.ResidenceStreetAddress;
                             break;
                         case GeocodeQualityType.NearestParcelCentroidPoint:
+                            ret = NAACCRCensusTractCertaintyType.ResidenceStreetAddress;
+                            break;
+                        case GeocodeQualityType.RoofTop:
                             ret = NAACCRCensusTractCertaintyType.ResidenceStreetAddress;
                             break;
                         case GeocodeQualityType.StateCentroid:

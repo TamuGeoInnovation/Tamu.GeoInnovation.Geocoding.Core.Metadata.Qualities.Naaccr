@@ -13,6 +13,7 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
 
         
         public const string NAACCR_GIS_COORDINATE_QUALITY_NAME_ADDRESS_POINT = "QUALITY_ADDRESS_POINT";
+        public const string NAACCR_GIS_COORDINATE_QUALITY_NAME_ROOFTOP = "QUALITY_ROOFTOP";
         public const string NAACCR_GIS_COORDINATE_QUALITY_NAME_GPS = "QUALITY_GPS";
         public const string NAACCR_GIS_COORDINATE_QUALITY_NAME_PARCEL_CENTROID = "QUALITY_PARCEL_CENTROID";
         public const string NAACCR_GIS_COORDINATE_QUALITY_NAME_STREET_SEGMENT_INTERPOLATION = "QUALITY_STREET_SEGMENT_INTERPOLATION";
@@ -42,11 +43,13 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
         public const string NAACCR_GIS_COORDINATE_QUALITY_CODE_PO_BOX_ZIP_CODE_CENTROID = "10";
         public const string NAACCR_GIS_COORDINATE_QUALITY_CODE_CITY_CENTROID = "11";
         public const string NAACCR_GIS_COORDINATE_QUALITY_CODE_COUNTY_CENTROID = "12";
+        public const string NAACCR_GIS_COORDINATE_QUALITY_CODE_ROOFTOP = "13";
         public const string NAACCR_GIS_COORDINATE_QUALITY_CODE_UNKNOWN = "98";
         public const string NAACCR_GIS_COORDINATE_QUALITY_CODE_UNMATCHABLE = "99";
         public const string NAACCR_GIS_COORDINATE_QUALITY_CODE_MISSING = "";
 
         public const string NAACCR_GIS_COORDINATE_QUALITY_SHORT_NAME_ADDRESS_POINT = "addr point";
+        public const string NAACCR_GIS_COORDINATE_QUALITY_SHORT_NAME_ROOFTOP = "roof top";
         public const string NAACCR_GIS_COORDINATE_QUALITY_SHORT_NAME_GPS = "gps";
         public const string NAACCR_GIS_COORDINATE_QUALITY_SHORT_NAME_PARCEL_CENTROID = "parcel";
         public const string NAACCR_GIS_COORDINATE_QUALITY_SHORT_NAME_STREET_SEGMENT_INTERPOLATION = "street interp";
@@ -65,6 +68,7 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
 
 
         public const string NAACCR_GIS_COORDINATE_QUALITY_DESCRIPTION_ADDRESS_POINT = "Coordinates derived from local government-maintained address points, which are based on property parcel locations, not interpolation over a street segment’s address range";
+        public const string NAACCR_GIS_COORDINATE_QUALITY_DESCRIPTION_ROOFTOP = "Coordinates are at the roof top level";
         public const string NAACCR_GIS_COORDINATE_QUALITY_DESCRIPTION_GPS = "Coordinates assigned by Global Positioning System (GPS)";
         public const string NAACCR_GIS_COORDINATE_QUALITY_DESCRIPTION_PARCEL_CENTROID = "Coordinates are match of house number and street, and based on property parcel location";
         public const string NAACCR_GIS_COORDINATE_QUALITY_DESCRIPTION_STREET_SEGMENT_INTERPOLATION = "Coordinates are match of house number and street, interpolated over the matching street segment’s address range";
@@ -114,6 +118,7 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
             NAACCRGISCoordinateQualityType ret = NAACCRGISCoordinateQualityType.Unknown;
 
             GeocodeQualityType geocodeQualityType = geocode.GeocodeQualityType;
+            //GeocodeQualityType geocodeQualityType = GeocodeQualityType.DrivewayEntrance;
 
             if (geocode.InputAddress != null)
             {
@@ -133,6 +138,9 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
                             ret = NAACCRGISCoordinateQualityType.AddressPoint;
                             break;
                         case GeocodeQualityType.BuildingFrontDoor:
+                            ret = NAACCRGISCoordinateQualityType.AddressPoint;
+                            break;
+                        case GeocodeQualityType.AddressPoint:
                             ret = NAACCRGISCoordinateQualityType.AddressPoint;
                             break;
                         case GeocodeQualityType.CityCentroid:
@@ -167,6 +175,9 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
                             break;
                         case GeocodeQualityType.NearestParcelCentroidPoint:
                             ret = NAACCRGISCoordinateQualityType.Parcel;
+                            break;
+                        case GeocodeQualityType.RoofTop:
+                            ret = NAACCRGISCoordinateQualityType.AddressPoint;
                             break;
                         case GeocodeQualityType.StateCentroid:
                             ret = NAACCRGISCoordinateQualityType.Unknown;
