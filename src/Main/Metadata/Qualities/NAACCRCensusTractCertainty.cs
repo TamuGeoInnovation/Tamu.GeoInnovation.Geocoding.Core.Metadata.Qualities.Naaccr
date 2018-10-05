@@ -235,8 +235,6 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
 
                         case GeocodeQualityType.USPSZipAreaCentroid:
                         case GeocodeQualityType.ZCTACentroid:
-
-
                             if (addressLocationTypes == AddressLocationTypes.PostOfficeBox 
                                 || addressLocationTypes == AddressLocationTypes.HighwayContractRoute 
                                 || addressLocationTypes == AddressLocationTypes.RuralRoute
@@ -248,29 +246,39 @@ namespace USC.GISResearchLab.Geocoding.Core.Metadata.Qualities
                             }
                             else
                             {
-                                if (censusYear == CensusYear.TwoThousand)
+                                if (geocode.MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.NumTracts2000 == 1)
                                 {
-                                    if (geocode.MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.NumTracts2000 == 1)
-                                    {
-                                        ret = NAACCRCensusTractCertaintyType.ResidenceCityOrZIPWithOneCensusTract;
-                                    }
-                                    else
-                                    {
-                                        ret = NAACCRCensusTractCertaintyType.ResidenceZIP;
-                                    }
+                                    ret = NAACCRCensusTractCertaintyType.ResidenceCityOrZIPWithOneCensusTract;
                                 }
+                                else
+                                {
+                                    ret = NAACCRCensusTractCertaintyType.ResidenceZIP;
+                                }
+                                //Bug:X7-56
+                                //This was not working since we implemented "AllCensusYears" option. In either case it was redundant as the result for either if statement was the same
+                                //if (censusYear == CensusYear.TwoThousand)
+                                //{
+                                //    if (geocode.MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.NumTracts2000 == 1)
+                                //    {
+                                //        ret = NAACCRCensusTractCertaintyType.ResidenceCityOrZIPWithOneCensusTract;
+                                //    }
+                                //    else
+                                //    {
+                                //        ret = NAACCRCensusTractCertaintyType.ResidenceZIP;
+                                //    }
+                                //}
 
-                                if (censusYear == CensusYear.TwoThousandTen)
-                                {
-                                    if (geocode.MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.NumTracts2010 == 1)
-                                    {
-                                        ret = NAACCRCensusTractCertaintyType.ResidenceCityOrZIPWithOneCensusTract;
-                                    }
-                                    else
-                                    {
-                                        ret = NAACCRCensusTractCertaintyType.ResidenceZIP;
-                                    }
-                                }
+                                //if (censusYear == CensusYear.TwoThousandTen)
+                                //{
+                                //    if (geocode.MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.NumTracts2010 == 1)
+                                //    {
+                                //        ret = NAACCRCensusTractCertaintyType.ResidenceCityOrZIPWithOneCensusTract;
+                                //    }
+                                //    else
+                                //    {
+                                //        ret = NAACCRCensusTractCertaintyType.ResidenceZIP;
+                                //    }
+                                //}
                             }
                             break;
                         case GeocodeQualityType.USPSZipPlus1AreaCentroid:
